@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>林家佑｜Vibecoding Resume</title>
+  <meta name="description" content="把天馬行空的想法，透過AI做成能實際運作的流程與體驗。Multi-agent / Flow-based AI / Automation mindset。" />
+
+  <style>
+    :root {
+      --bg: #0b1020;
+      --card: #101a33;
+      --text: #eaf0ff;
+      --muted: rgba(234, 240, 255, .72);
+      --line: rgba(234, 240, 255, .12);
+      --accent: #7aa7ff;
+      --accent2: #7bffd6;
+      --shadow: 0 16px 40px rgba(0, 0, 0, .35);
+      --radius: 18px;
+      --max: 980px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--sans);
+      background: radial-gradient(1200px 800px at 20% 10%, rgba(122, 167, 255, .22), transparent 55%),
+        radial-gradient(1000px 700px at 80% 20%, rgba(123, 255, 214, .12), transparent 50%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit
+    }
+
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 40px 20px 70px
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      background: rgba(16, 26, 51, .55);
+      border-radius: 999px;
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 14px;
+      backdrop-filter: blur(10px);
+      z-index: 10;
+    }
+
+    .brand {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      font-weight: 700
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 0 4px rgba(122, 167, 255, .12);
+    }
+
+    .nav {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end
+    }
+
+    .nav a {
+      text-decoration: none;
+      font-size: 14px;
+      color: var(--muted);
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+    }
+
+    .nav a:hover {
+      border-color: var(--line);
+      color: var(--text)
+    }
+
+    header {
+      margin-top: 34px
+    }
+
+    .hero {
+      border: 1px solid var(--line);
+      background: rgba(16, 26, 51, .55);
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: 40px;
+      letter-spacing: .2px
+    }
+
+    .subtitle {
+      color: var(--muted);
+      margin: 0 0 18px;
+      font-size: 16px
+    }
+
+    .badge-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap
+    }
+
+    .badge {
+      font-family: var(--mono);
+      font-size: 12px;
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: rgba(234, 240, 255, .85);
+      background: rgba(11, 16, 32, .35);
+    }
+
+    .cta {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 18px
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      font-weight: 650;
+      padding: 11px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(11, 16, 32, .35);
+    }
+
+    .btn.primary {
+      border-color: rgba(122, 167, 255, .45);
+      background: linear-gradient(135deg, rgba(122, 167, 255, .18), rgba(123, 255, 214, .12));
+    }
+
+    .btn:hover {
+      transform: translateY(-1px)
+    }
+
+    .grid {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: 1fr;
+      margin-top: 16px;
+    }
+
+    @media (min-width:860px) {
+      .grid {
+        grid-template-columns: 1.1fr .9fr;
+      }
+    }
+
+    section {
+      margin-top: 18px
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      background: rgba(16, 26, 51, .55);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h2 {
+      margin: 0 0 10px;
+      font-size: 18px
+    }
+
+    .muted {
+      color: var(--muted)
+    }
+
+    ul {
+      margin: 10px 0 0;
+      padding-left: 18px
+    }
+
+    li {
+      margin: 6px 0
+    }
+
+    .code {
+      font-family: var(--mono);
+      border: 1px dashed rgba(234, 240, 255, .18);
+      background: rgba(11, 16, 32, .35);
+      border-radius: 14px;
+      padding: 12px;
+      overflow: auto;
+      font-size: 12px;
+      color: rgba(234, 240, 255, .85);
+    }
+
+    .project {
+      padding: 14px;
+      border: 1px solid rgba(234, 240, 255, .10);
+      border-radius: 14px;
+      background: rgba(11, 16, 32, .35);
+    }
+
+    .project-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      font-weight: 700;
+    }
+
+    .pill {
+      font-family: var(--mono);
+      font-size: 11px;
+      padding: 6px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(234, 240, 255, .12);
+      color: rgba(234, 240, 255, .78);
+    }
+
+    footer {
+      margin-top: 26px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: rgba(234, 240, 255, .6);
+      font-size: 13px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(16, 26, 51, .9);
+      border: 1px solid var(--line);
+      padding: 10px 12px;
+      border-radius: 12px;
+      color: rgba(234, 240, 255, .88);
+      box-shadow: var(--shadow);
+      opacity: 0;
+      pointer-events: none;
+      transition: all .25s ease;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(-4px)
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand"><span class="dot"></span> 林家佑 · Vibecoding</div>
+      <nav class="nav">
+        <a href="#vibe">Vibe</a>
+        <a href="#built">Built</a>
+        <a href="#tools">Tools</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+
+    <header class="hero">
+      <h1>把天馬行空的想法，透過AI實現。</h1>
+      <p class="subtitle">Multi-agent / Flow-based AI / Automation mindset · 台北 · On-site OK</p>
+
+      <div class="badge-row">
+        <span class="badge">🚀 MVP-first</span>
+        <span class="badge">🧩 Flow Thinking</span>
+        <span class="badge">🛠 Make / n8n</span>
+        <span class="badge">🤝 Cross-function</span>
+      </div>
+
+      <div class="cta">
+        <a class="btn primary" href="#contact">私訊我 / 聯絡方式</a>
+        <a class="btn" href="javascript:void(0)" id="copyPitch">複製一句話介紹</a>
+      </div>
+    </header>
+
+    <div class="grid">
+      <section id="vibe" class="card">
+        <h2>🧠 My Vibe（我怎麼工作）</h2>
+        <ul>
+          <li>面對模糊需求，我先讓東西「跑起來」，再迭代細節。</li>
+          <li>比起模型大小，我更在意互動流程、節奏與使用者感受。</li>
+          <li>我習慣做 MVP → 測 → 砍 → 重做，不怕試錯。</li>
+          <li>我把 AI 當夥伴：設計的是「互動結構」，不是功能清單。</li>
+        </ul>
+        <div class="code" style="margin-top:12px">
+          One-liner:
+          我擅長把模糊的想法，變成能實際運作的 AI 互動流程。
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>⚡ 我能幫團隊快速做到什麼</h2>
+        <ul>
+          <li>把想法拆成可執行的 Action Flow（任務、觸發、角色、資料）。</li>
+          <li>用 no/low-code（Make / n8n）快速串起可展示的原型。</li>
+          <li>需要寫 code 時補齊：API、工具、資料結構、部署。</li>
+          <li>和顧問 / 教育訓練 / 技術一起推 AI 方案落地。</li>
+        </ul>
+        <p class="muted" style="margin-top:10px">
+          顧問機器人、測評助手、內訓教材
+        </p>
+        <hr style="border:none;border-top:1px solid rgba(234,240,255,.12); margin:14px 0 10px;" />
+        <div class="muted" style="display:grid; gap:6px;">
+          <div><strong style="color:rgba(234,240,255,.92);">學歷：</strong>中信金融管理學院 科技金融研究所</div>
+          <div><strong style="color:rgba(234,240,255,.92);">證照：</strong>IPAS 巨量資料分析師－初級</div>
+        </div>
+      </section>
+    </div>
+
+    <section id="built" class="card">
+      <h2>🧩 What I’ve Built（代表作品）</h2>
+
+      <div class="project">
+        <div class="project-title">
+          <span>Multi-Agent AI 討論系統（Flow-based AI）</span>
+          <span class="pill">Python · LLM · Multi-agent</span>
+        </div>
+
+        <p class="muted" style="margin:10px 0 0">
+          設計並實作多角色 AI 代理（如律師／法官／財務專家）協作討論流程，應用於真實課堂情境，
+          驗證使用者是否願意把 AI 當成「思考夥伴」。
+        </p>
+
+        <ul>
+          <li>重點不是答案，而是：角色分工、回合規則、互動節奏、可延續對話。</li>
+          <li>我擅長把規則變成流程，把流程變成可跑的系統。</li>
+        </ul>
+
+        <div style="margin-top:12px">
+          <a href="https://www.notion.so/Multi-Agent-AI-System-for-Domain-Discussion-2edb2607493d803ca5bbcc59a9aced5d?source=copy_link"
+            target="_blank" rel="noopener noreferrer" class="btn">
+            🔎 查看完整系統設計與說明（Notion）
+          </a>
+        </div>
+      </div>
+
+      <p class="muted" style="margin-top:14px">
+        （另有流程自動化、AI 小工具、RAG / 資料工具等實作經驗）
+      </p>
+    </section>
+
+    <section id="tools" class="card">
+      <h2>🛠 Tools are just tools</h2>
+      <div class="code">
+        Python / FastAPI / LLM API
+        Multi-agent & prompt/system design
+        Flow thinking / automation mindset
+        Make / n8n
+      </div>
+      <p class="muted" style="margin-top:10px">
+        你要我「先做出來」可以；你要我「做得可維護、可擴充」我也可以。
+      </p>
+    </section>
+
+    <section id="contact" class="card">
+      <h2>📩 Contact</h2>
+
+      <p class="muted">
+        <a href="mailto:t909050709@gmail.com">t909050709@gmail.com</a>
+      </p>
+
+      <div class="code">
+        LINE ID: 91709<br />
+        Location: Taipei · On-site OK
+      </div>
+
+      <div class="cta">
+        <a class="btn primary" href="mailto:t909050709@gmail.com">
+          寄信給我
+        </a>
+        <a class="btn" href="javascript:void(0)" id="copyLink">
+          複製網站連結
+        </a>
+      </div>
+    </section>
+
+
+    <footer>
+      <div>© <span id="year"></span> 林家佑</div>
+      <div class="muted">Built with vibecoding energy ✨</div>
+    </footer>
+  </div>
+
+  <div class="toast" id="toast">已複製到剪貼簿</div>
+
+  <script>
+    const toast = document.getElementById('toast');
+    const showToast = (msg) => {
+      toast.textContent = msg || '已複製到剪貼簿';
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 1200);
+    };
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    document.getElementById('copyPitch').addEventListener('click', async () => {
+      const pitch = "我擅長把模糊的 AI 想法，變成能實際運作的流程與體驗。";
+      try { await navigator.clipboard.writeText(pitch); showToast("已複製一句話介紹"); }
+      catch { showToast("複製失敗，請手動複製"); }
+    });
+
+    document.getElementById('copyLink').addEventListener('click', async () => {
+      const link = window.location.href;
+      try { await navigator.clipboard.writeText(link); showToast("已複製目前頁面連結"); }
+      catch { showToast("複製失敗，請手動複製"); }
+    });
+  </script>
+</body>
+
+</html>
